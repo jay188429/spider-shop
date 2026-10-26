@@ -1,0 +1,6 @@
+paymentId,status,paidAmount,cancelledAmount
+sp-01,PAID,33000,0
+sp-02,PAID,29500,12500
+sp-03,PAID,1000,0
+sp-04,FAILED,0,0
+sp-06,PAID,25000,0

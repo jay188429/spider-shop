@@ -1,0 +1,5 @@
+paymentId,status,paidAmount
+sp-01,placed,33000
+sp-02,packing,29500
+sp-05,placed,50000
+sp-06,sent,25000
