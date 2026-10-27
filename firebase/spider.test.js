@@ -8,7 +8,7 @@ import {
   assertSucceeds,
   assertFails,
 } from "@firebase/rules-unit-testing";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 
 // 2. 어느 규칙 판으로 돌릴지 고르는 한 줄
 const RULES = "spider.rules";
@@ -68,4 +68,9 @@ test("5. a 가 상품 s1 의 가격을 1원으로 바꾼다", async () => {
 test("6. b 가 자기 주문 o1 의 상태를 sent 로 바꾼다", async () => {
   const b = testEnv.authenticatedContext("b");
   await assertFails(updateDoc(doc(b.firestore(), "orders/o1"), { status: "sent" }));
+});
+
+test("7. 손님이 남의 주문 o1 을 지운다", async () => {
+  const a = testEnv.authenticatedContext("a");
+  await assertFails(deleteDoc(doc(a.firestore(), "orders/o1")));
 });
